@@ -9,7 +9,7 @@ def sample(num1,num2,num3):
 
 sample(10,20,30)
 
-poly morphism
+
 
 
 
