@@ -4,8 +4,14 @@
 
 a,b = 1,1
 i =0
+sum=0
 while True:
-    print(b,end=' ')
+    #print(b,end=' ')
     a,b = b,a+b
-    if b > 4000000 : break
+    if b > 4000000 :
+        break
+    else:
+        if b % 2 == 0:
+            sum +=b
+print(sum)
 print("end of the series")
