@@ -2,7 +2,7 @@
 #Find the largest palindrome made from the product of two 3-digit numbers.
 
 
-max_mult=99
+max_mult=999
 max_numb=max_mult * max_mult
 max_len=len(str(max_mult))
 print(max_numb)
