@@ -15,7 +15,7 @@ for i in range(1, 101):
 # Used lambda function along with reduce function to calculate factorial
 total_mul2 = functools.reduce(lambda mul2, j: mul2 * j, range(1, 101))
 
-# Used iterable in sum function
+# Used iterable in sum function and also called as list comprehension
 total_sum = sum([int(j) for j in str(total_mul2)])
 
 
