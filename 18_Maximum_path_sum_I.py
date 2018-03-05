@@ -26,6 +26,9 @@
 #NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67,
 #is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
 
+import time
+start_time = time.time()
+
 from numpy import *
 # sample input for testing
 sample_ip = array([[3,0,0,0],
@@ -58,6 +61,8 @@ def cal_sum(grid_length,sample_ip):
 
 grid_length, sample_ip2 = read_file()
 cal_sum(grid_length,sample_ip2)
+
+print("time elapsed: {:.2f}s".format(time.time() - start_time))
 
 
 
