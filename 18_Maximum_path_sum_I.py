@@ -1,10 +1,11 @@
-#By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
+# By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
 '''
     3
    7 4
   2 4 6
  8 5 9 3
-''' # That is, 3 + 7 + 4 + 9 = 23.
+That is, 3 + 7 + 4 + 9 = 23.
+'''
 
 # Find the maximum total from top to bottom of the triangle below:
 '''           75
@@ -23,48 +24,47 @@
  63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23 
 '''
-#NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67,
-#is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
+# NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. However, Problem 67,
+# is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
 
 import time
 start_time = time.time()
 
 from numpy import *
 # sample input for testing
-sample_ip = array([[3,0,0,0],
-                   [7,4,0,0],
-                   [2,4,6,0],
-                   [8,5,9,3]])
+sample_ip1 = array([[3, 0, 0, 0],
+                   [7, 4, 0, 0],
+                   [2, 4, 6, 0],
+                   [8, 5, 9, 3]])
 
-grid_length1 = len(sample_ip)
+grid_length1 = len(sample_ip1)
+
 
 def read_file():
     max_sum = []
     input_file = open("C:\\Users\\AKSHAY_PC\\Desktop\\sample_input.txt", "r")  # Double back slash used as skip character
     f1 = input_file.readlines()
-    for row,i in enumerate(f1):
+    for row, i in enumerate(f1):
         max_sum.append(i.split())
-    #print(len(max_sum),max_sum)
-    return len(max_sum),max_sum
+    # print(len(max_sum),max_sum)
+    return len(max_sum), max_sum
 
-def cal_sum(grid_length,sample_ip):
-    #print(grid_length,sample_ip)
+
+def cal_sum(grid_length, sample_ip):
+    # print(grid_length,sample_ip)
     for i in range(grid_length-2, -1, -1):
         j = 0
-        #print(sample_ip[i][j],sample_ip[i+1][j],sample_ip[i+1][j+1])
-        while j <= i :
-            #print(sample_ip[i][j],sample_ip[i+1][j],sample_ip[i+1][j+1])
+        # print(sample_ip[i][j],sample_ip[i+1][j],sample_ip[i+1][j+1])
+        while j <= i:
+            # print(sample_ip[i][j],sample_ip[i+1][j],sample_ip[i+1][j+1])
             sample_ip[i][j] = int(sample_ip[i][j]) + max(int(sample_ip[i+1][j]), int(sample_ip[i+1][j+1]))
             j += 1
-        #print(sample_ip)
-    print("Maximum Sum:",sample_ip[0][0])
+        # print(sample_ip)
+    print("Maximum Sum:", sample_ip[0][0])
 
-grid_length, sample_ip2 = read_file()
-cal_sum(grid_length,sample_ip2)
+
+grid_length2, sample_ip2 = read_file()
+
+cal_sum(grid_length2, sample_ip2)
 
 print("time elapsed: {:.2f}s".format(time.time() - start_time))
-
-
-
-
-
