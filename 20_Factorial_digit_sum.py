@@ -4,12 +4,19 @@
 
 # Find the sum of the digits in the number 100!
 
+# Used functools library to import reduce function
+import functools
+
 total_mul = 1
 
 for i in range(1, 101):
     total_mul = total_mul * i
 
+# Used lambda function along with reduce function to calculate factorial
+total_mul2 = functools.reduce(lambda mul2, j: mul2 * j, range(1, 101))
+
 # Used iterable in sum function
-total_sum = sum([int(j) for j in str(total_mul)])
+total_sum = sum([int(j) for j in str(total_mul2)])
+
 
 print("Total sum:", total_sum)
