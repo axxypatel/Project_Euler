@@ -6,6 +6,7 @@
 d = 1
 pre_quotient = ""
 highest_quotient = ""
+final_numb = 0
 
 while d < 1000:
     divisor = 1
@@ -33,4 +34,3 @@ while d < 1000:
     d += 1
 
 print("Final number is:", final_numb, "\nHighest Length:", len(highest_quotient))
-
