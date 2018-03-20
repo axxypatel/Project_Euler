@@ -9,48 +9,48 @@ unit_digits = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', '
                'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
 tens_digits = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
 other_digit = ['hundred', 'thousand', 'and']
-sum = 0
+total_sum = 0
 
 # nine hundred and ninety nine
 for i in range(1, 1001):
     unit_place = i % 10
     tens_place = i // 10
-    hund_place = i // 100
+    hnd_place = i // 100
     thou_place = i // 1000
-    #sum=0
+
     if i < 20:
-        #print(unit_digits[i-1])
-        sum += len(unit_digits[i - 1])
-        # print(sum, end=' ')
-    elif tens_place > 1 and hund_place == 0:
+        # print(unit_digits[i-1])
+        total_sum += len(unit_digits[i - 1])
+        # print(total_sum, end=' ')
+    elif tens_place > 1 and hnd_place == 0:
         if unit_place == 0:
-            #print(tens_digits[tens_place - 2])
-            sum += len(tens_digits[tens_place - 2])
+            # print(tens_digits[tens_place - 2])
+            total_sum += len(tens_digits[tens_place - 2])
         else:
-            #print(tens_digits[tens_place - 2],unit_digits[unit_place-1])
-            sum += (len(tens_digits[tens_place - 2]) + len(unit_digits[unit_place-1]))
-    elif hund_place != 0:
+            # print(tens_digits[tens_place - 2],unit_digits[unit_place-1])
+            total_sum += (len(tens_digits[tens_place - 2]) + len(unit_digits[unit_place-1]))
+    elif hnd_place != 0:
         if i % 100 == 0 and thou_place != 1 and i / 100 > 0:
             temp = (i//100) - 1
-            #print(unit_digits[temp], other_digit[0])
-            sum += (len(unit_digits[temp]) + len(other_digit[0]))
+            # print(unit_digits[temp], other_digit[0])
+            total_sum += (len(unit_digits[temp]) + len(other_digit[0]))
         elif i % 1000 == 0:
-            #print(unit_digits[0],other_digit[1])
-            sum += (len(unit_digits[0]) + len(other_digit[1]))
+            # print(unit_digits[0],other_digit[1])
+            total_sum += (len(unit_digits[0]) + len(other_digit[1]))
         else:
-            last_digit = i - (hund_place * 100)
+            last_digit = i - (hnd_place * 100)
             if 0 < last_digit < 20:
-                #print(unit_digits[hund_place-1],other_digit[0],other_digit[2],unit_digits[last_digit-1])
-                sum += (len(unit_digits[hund_place-1]) + len(other_digit[0]) + len(other_digit[2]) + len(unit_digits[last_digit-1]))
+                # print(unit_digits[hund_place-1],other_digit[0],other_digit[2],unit_digits[last_digit-1])
+                total_sum += (len(unit_digits[hnd_place-1]) + len(other_digit[0]) + len(other_digit[2]) + len(unit_digits[last_digit-1]))
             else:
                 unit_place = last_digit % 10
                 tens_place = last_digit // 10
-                #print(last_digit,unit_place,tens_place)
+                # print(last_digit,unit_place,tens_place)
                 if unit_place == 0:
-                    #print(unit_digits[hund_place-1],other_digit[0],other_digit[2],tens_digits[tens_place-2])
-                    sum += (len(unit_digits[hund_place-1]) + len(other_digit[0]) + len(other_digit[2]) + len(tens_digits[tens_place-2]))
+                    # print(unit_digits[hund_place-1],other_digit[0],other_digit[2],tens_digits[tens_place-2])
+                    total_sum += (len(unit_digits[hnd_place-1]) + len(other_digit[0]) + len(other_digit[2]) + len(tens_digits[tens_place-2]))
                 else:
-                    #print(unit_digits[hund_place-1],other_digit[0],other_digit[2],tens_digits[tens_place-2],unit_digits[unit_place-1])
-                    sum += (len(unit_digits[hund_place-1]) + len(other_digit[0]) + len(other_digit[2]) + len(tens_digits[tens_place-2]) + len(unit_digits[unit_place-1]))
-    #print(i,sum)
-print(sum)
+                    # print(unit_digits[hund_place-1],other_digit[0],other_digit[2],tens_digits[tens_place-2],unit_digits[unit_place-1])
+                    total_sum += (len(unit_digits[hnd_place-1]) + len(other_digit[0]) + len(other_digit[2]) + len(tens_digits[tens_place-2]) + len(unit_digits[unit_place-1]))
+    # print(i,sum)
+print("Total sum:", total_sum)
