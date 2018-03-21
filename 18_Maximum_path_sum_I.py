@@ -42,6 +42,7 @@ grid_length1 = len(sample_ip1)
 def read_file():
     max_sum = []
     input_file = open("C:\\Users\\AKSHAY_PC\\Desktop\\sample_input.txt", "r")  # Double back slash used as skip character
+    # with open("C:\\Users\\AKSHAY_PC\\Desktop\\sample_input.txt", "r") as input_file:   other way to open the file
     f1 = input_file.readlines()
     for row, i in enumerate(f1):
         max_sum.append(i.split())
