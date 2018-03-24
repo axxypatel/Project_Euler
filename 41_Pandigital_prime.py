@@ -49,8 +49,8 @@ while start_numb > 999:
         start_numb = 4321
         continue
     else:
-        if check_pan_digital(str(start_numb)) is True:
-            if is_prime(start_numb) is True:
+        if check_pan_digital(str(start_numb)):
+            if is_prime(start_numb):
                 print("Highest pandigital prime number is:", start_numb)
                 final_numb1 = start_numb
                 break
