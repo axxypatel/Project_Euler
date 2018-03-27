@@ -18,7 +18,7 @@ class Queue:
         return len(self.item_list)
 
 
-def test_stack_class():
+def test_queue_class():
     sample_object = Queue()
     sample_object.enqueue(4)
     sample_object.enqueue('dog')
@@ -36,4 +36,4 @@ def test_stack_class():
         print("queue is not empty")
 
 
-test_stack_class()
+test_queue_class()
