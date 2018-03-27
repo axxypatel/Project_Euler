@@ -62,7 +62,3 @@ def check_balanced_parentheses(parentheses_string):
 
 print(check_balanced_parentheses('((()))'))
 print(check_balanced_parentheses('(()))'))
-
-
-
-
