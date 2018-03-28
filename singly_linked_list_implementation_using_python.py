@@ -7,18 +7,6 @@ class Node:
         self.data = data
         self.next = None
 
-    def getdata(self):
-        return self.data
-
-    def getnext(self):
-        return self.next
-
-    def setdata(self, newdata):
-        self.data = newdata
-
-    def setnext(self, newnext):
-        self.next = newnext
-
 
 class SinglyLinkedList:    # every element add in front of the list near to head pointer so first element which is added will be available at last position
     def __init__(self):
@@ -26,7 +14,7 @@ class SinglyLinkedList:    # every element add in front of the list near to head
 
     def add(self, data):
         temp = Node(data)
-        temp.setnext(self.head)
+        temp.next = self.head
         self.head = temp
 
     def isempty(self):
@@ -37,19 +25,19 @@ class SinglyLinkedList:    # every element add in front of the list near to head
         prev = None
         while current is not None:
             if current.data == data:
-                prev.setnext(current.getnext())
+                prev.next = current.next
                 current.next = None
                 return
             else:
                 prev = current
-                current = current.getnext()
+                current = current.next
 
     def size(self):
         current = self.head
         count = 0
         while current is not None:
             count += 1
-            current = current.getnext()
+            current = current.next
         return count
 
     def search(self, data):
@@ -58,14 +46,14 @@ class SinglyLinkedList:    # every element add in front of the list near to head
             if current.data == data:
                 return True
             else:
-                current = current.getnext()
+                current = current.next
         return False
 
     def traverse(self):
         current = self.head
         while current is not None:
             print(current.data)
-            current = current.getnext()
+            current = current.next
 
 
 mylist = SinglyLinkedList()
