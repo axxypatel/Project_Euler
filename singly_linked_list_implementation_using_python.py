@@ -20,7 +20,7 @@ class Node:
         self.next = newnext
 
 
-class SinglyLinkedList:
+class SinglyLinkedList:    # every element add in front of the list near to head pointer so first element which is added will be available at last position
     def __init__(self):
         self.head = None
 
