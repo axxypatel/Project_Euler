@@ -1,26 +1,23 @@
 # The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 # Find the sum of all the primes below two million.
 # 2000000
-import math
-
 below_numb = 2000000
 
 
-def is_prime(numb):  # use simple primality test algorithm having O(sqrt(N)) time complexity
+def is_prime(x):  # use simple primality test algorithm having O(sqrt(N)) time complexity
 
-    if numb == 2 or numb == 3:
+    if x <= 1:
+        return False
+    if x == 2 or x == 3:
         return True
-    if numb % 2 == 0:
+    if x % 2 == 0 or x % 3 == 0:
         return False
-    if numb % 3 == 0:
-        return False
-    i = 5
-    srt_numb = int(math.sqrt(numb))
 
-    while i <= srt_numb:  # Check till square root of number and test the divisibity
-        if numb % i == 0:
+    y = 5
+    while y*y <= x:  # check divisibility till the square root of the number
+        if x % y == 0 or x % (y + 2) == 0:
             return False
-        i += 2
+        y += 6
     return True
 
 
