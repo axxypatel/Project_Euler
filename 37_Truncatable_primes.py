@@ -3,7 +3,6 @@
 
 # Find the sum of the only eleven primes that are both truncatable from left to right and right to left.
 # NOTE: 2, 3, 5, and 7 are not considered to be truncatable primes.
-import math
 all_numb = []
 
 
@@ -16,12 +15,10 @@ def is_prime(x):  # simple primality test algorithm implemented
         return False
 
     y = 5
-    sqt_numb = int(math.sqrt(x))
-
-    while y <= sqt_numb:  # check divisibility till the square root of the number
-        if x % y == 0:
+    while y*y <= x:  # check divisibility till the square root of the number
+        if x % y == 0 or x % (y + 2) == 0:
             return False
-        y += 2
+        y += 6
     return True
 
 
@@ -39,10 +36,10 @@ while cnt < 12:
             numb_list.append(int(temp_numb % 10))
             temp_numb = int(temp_numb/10)
         numb_list.reverse()
-
+        prime_left_check = True
+        prime_right_check = True
         for j in range(0, 2):
-            prime_left_check = True
-            prime_right_check = True
+
             if j == 0:
                 for k in range(0, numb_len):
                     str1 = ""
