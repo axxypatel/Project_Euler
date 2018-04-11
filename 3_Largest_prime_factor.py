@@ -11,8 +11,8 @@ class PrimeFactorMethod:
         self.prime_list = []
         self.prime_list2 = []
 
-    def is_prime(self, x):  # simple primality test algorithm implemented
-        import math
+    @staticmethod
+    def is_prime(x):  # simple primality test algorithm implemented
         if x <= 1:
             return False
         if x == 2 or x == 3:
@@ -21,12 +21,10 @@ class PrimeFactorMethod:
             return False
 
         y = 5
-        sqt_numb = int(math.sqrt(x))
-
-        while y <= sqt_numb:  # check divisibility till the square root of the number
-            if x % y == 0:
+        while y*y <= x:  # check divisibility till the square root of the number
+            if x % y == 0 or x % (y + 2) == 0:
                 return False
-            y += 2
+            y += 6
         return True
 
     def traditional_approach(self):
