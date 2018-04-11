@@ -10,21 +10,19 @@ upper_limit = 1000000
 
 
 def is_prime(x):  # simple primality test algorithm implemented
-        if x <= 1:
-            return False
-        if x == 2 or x == 3:
-            return True
-        if x % 2 == 0 or x % 3 == 0:
-            return False
-
-        y = 5
-        sqt_numb = int(math.sqrt(x))
-
-        while y <= sqt_numb:  # check divisibility till the square root of the number
-            if x % y == 0:
-                return False
-            y += 2
+    if x <= 1:
+        return False
+    if x == 2 or x == 3:
         return True
+    if x % 2 == 0 or x % 3 == 0:
+        return False
+
+    y = 5
+    while y*y <= x:  # check divisibility till the square root of the number
+        if x % y == 0 or x % (y + 2) == 0:
+            return False
+        y += 6
+    return True
 
 
 def generate_prime_list():
