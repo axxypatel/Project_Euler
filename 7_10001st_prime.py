@@ -47,12 +47,10 @@ def is_prime_primal(x):  # This code is fast in current problem
         return False
 
     i = 5
-    srt_numb = int(math.sqrt(x))
-
-    while i <= srt_numb:  # check divisibility till the square root of the number
-        if x % i == 0:
+    while i*i <= x:  # check divisibility till the square root of the number
+        if x % i == 0 or x % (i + 2) ==0 :
             return False
-        i += 2
+        i += 6
     return True
 
 
