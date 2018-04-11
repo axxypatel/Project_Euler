@@ -22,12 +22,10 @@ def is_prime(x):  # simple primality test algorithm implemented
         return False
 
     y = 5
-    sqt_numb = int(math.sqrt(x))
-
-    while y <= sqt_numb:  # check divisibility till the square root of the number
-        if x % y == 0:
+    while y*y <= x:  # check divisibility till the square root of the number
+        if x % y == 0 or x % (y + 2) == 0:
             return False
-        y += 2
+        y += 6
     return True
 
 
