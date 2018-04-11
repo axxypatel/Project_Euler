@@ -2,7 +2,6 @@
 
 # There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
 # How many circular primes are there below one million? 1000000
-import math
 upper_limit = 1000000
 all_numb = []
 
@@ -16,12 +15,10 @@ def is_prime(x):  # simple primality test algorithm implemented
         return False
 
     y = 5
-    sqt_numb = int(math.sqrt(x))
-
-    while y <= sqt_numb:  # check divisibility till the square root of the number
-        if x % y == 0:
+    while y*y <= x:  # check divisibility till the square root of the number
+        if x % y == 0 or x % (y + 2) == 0:
             return False
-        y += 2
+        y += 6
     return True
 
 
