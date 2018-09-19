@@ -8,3 +8,5 @@ for i in range(1, 1000):
         total_sum = total_sum+i
 print(total_sum)
 print(dir())
+
+# End of the program
